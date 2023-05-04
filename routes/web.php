@@ -47,6 +47,7 @@ Route::group(['middleware'=>['auth','admin']], function(){
     Route::get('/closeoperation/{ship_id}', [App\Http\Controllers\Admin\ShipController::class, 'operation']);
     Route::get('/general-report/{ship_id}', [App\Http\Controllers\Admin\ShipController::class, 'report']);
     Route::get('/shift-report/{ship_id}', [App\Http\Controllers\Admin\ShipController::class, 'shiftreport']);
+    Route::get('/basement-report/{ship_id}', [App\Http\Controllers\Admin\ShipController::class, 'basementreport']);
 
 });
 
@@ -69,6 +70,8 @@ Route::group(['middleware'=>['auth','manager']], function(){
     Route::get('/deleteall-manager',[\App\Http\Controllers\Manager\NotificationController::class,'deleteall']);
     Route::get('/manager-closeoperation/{ship_id}', [App\Http\Controllers\Manager\ShipController::class, 'operation']);
     Route::get('/manager-general-report/{ship_id}', [App\Http\Controllers\Manager\ShipController::class, 'report']);
+    Route::get('/manager-shift-report/{ship_id}', [App\Http\Controllers\Manager\ShipController::class, 'shiftreport']);
+    Route::get('/manager-basement-report/{ship_id}', [App\Http\Controllers\Manager\ShipController::class, 'basementreport']);
 
 });
 
@@ -98,6 +101,8 @@ Route::group(['middleware'=>['auth','customer']], function(){
     Route::resource('customer-shiftship.customer-tallyclerkship','App\Http\Controllers\Customer\TallyClerkShipController');
     Route::get('/customer-closeoperation/{ship_id}', [App\Http\Controllers\Customer\ShipController::class, 'operation']);
     Route::get('/customer-general-report/{ship_id}', [App\Http\Controllers\Customer\ShipController::class, 'report']);
+    Route::get('/customer-shift-report/{ship_id}', [App\Http\Controllers\Customer\ShipController::class, 'shiftreport']);
+    Route::get('/customer-basement-report/{ship_id}', [App\Http\Controllers\Customer\ShipController::class, 'basementreport']);
 
 
 });
@@ -114,7 +119,9 @@ Route::group(['middleware'=>['auth','agent']], function(){
     Route::get('/agent-tallyclerkshiftship/{tallclerkshiftship_id}/agent-ship/{ship_id}', [App\Http\Controllers\Agent\TallyClerkShiftShipController::class, 'index']);
     Route::resource('agent-shiftship.agent-tallyclerkship','App\Http\Controllers\Agent\TallyClerkShipController');
     Route::get('/agent-closeoperation/{ship_id}', [App\Http\Controllers\Agent\ShipController::class, 'operation']);
-    Route::get('/agent-general-report/{ship_id}', [App\Http\Controllers\Customer\ShipController::class, 'report']);
+    Route::get('/agent-general-report/{ship_id}', [App\Http\Controllers\Agent\ShipController::class, 'report']);
+    Route::get('/agent-shift-report/{ship_id}', [App\Http\Controllers\Agent\ShipController::class, 'shiftreport']);
+    Route::get('/agent-basement-report/{ship_id}', [App\Http\Controllers\Agent\ShipController::class, 'basementreport']);
 
 
 });

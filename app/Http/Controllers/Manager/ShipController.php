@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Manager;
 
 use App\Http\Controllers\Controller;
 use App\Models\Agent;
+use App\Models\Basement;
 use App\Models\Customer;
 use App\Models\OperationStation;
 use App\Models\Shift;
+use App\Models\ShiftShip;
 use App\Models\Ship;
 use App\Models\StopRecord;
 use App\Models\TypeMerchandise;
@@ -215,6 +217,57 @@ class ShipController extends Controller
         // ]);
 
         $pdf = Pdf::loadView('manager.ship.print_report', compact('ship','time_total','shifts'))->setOptions([
+            'defaultFont' => 'sans-serif',
+            'isRemoteEnabled' => 'true'
+        ]);
+
+        
+        return $pdf->setPaper('a4')->stream('report.pdf');
+
+        // return view('admin.ship.print_report',compact('ship','time_total','shifts'));
+    }
+
+    public function shiftreport($shiftship_id){
+        App::setLocale(auth()->user()->lang);
+        $shiftship = ShiftShip::find($shiftship_id);
+        
+        $ship = Ship::find($shiftship->ship_id);
+        $shifts = Shift::orderBy('id','asc')->get();
+        $stops_time = StopRecord::where('ship_id', $ship->id)->where('status',1)->get();
+        $time_total = 0;
+        foreach($stops_time as $item){
+            
+            $created_at = strtotime($item->start_date);
+            $closed_at = strtotime($item->end_date);
+            $time = $closed_at - $created_at;
+            $time_total = $time_total + $time;
+        }
+
+        $time_total = round($time_total/3600, 1);
+
+        // $ship->update([
+        //     'status'=>1
+        // ]);
+
+        $pdf = Pdf::loadView('manager.ship.tallyclerkshift.shift_report', compact('shiftship','ship','time_total','shifts'))->setOptions([
+            'defaultFont' => 'sans-serif',
+            'isRemoteEnabled' => 'true'
+        ]);
+
+        
+        return $pdf->setPaper('a4')->stream('report.pdf');
+
+        // return view('admin.ship.print_report',compact('ship','time_total','shifts'));
+    }
+
+    public function basementreport($basement_id){
+        App::setLocale(auth()->user()->lang);
+
+        $basement = Basement::find($basement_id);
+        $ship = Ship::find($basement->ship_id);
+       
+
+        $pdf = Pdf::loadView('manager.ship.basement.basement_report', compact('basement','ship'))->setOptions([
             'defaultFont' => 'sans-serif',
             'isRemoteEnabled' => 'true'
         ]);

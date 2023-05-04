@@ -24,7 +24,7 @@
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="{{route('agent-ship.index')}}">
-                <i class="align-middle" data-feather="truck"></i> <span class="align-middle">{{__('text.ship')}}</span>
+                <i class="align-middle" data-feather="anchor"></i> <span class="align-middle">{{__('text.ship')}}</span>
                 </a>
             </li>
 

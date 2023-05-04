@@ -6,6 +6,7 @@
     
     <h1 class="h3 mb-3">{{__('text.basement')}}</h1>
     <a href="{{URL::to('/ship/'.$basement->ship_id)}}" class="btn btn-pill btn-primary mb-3"><i class="far fa-arrow-left"></i>{{__('text.back')}}</a>
+    <a href="{{URL::to('/basement-report/'.$basement->id)}}" target="_blank" class="btn btn-pill btn-primary mb-3"><i class="far fa-file"></i>{{__('text.download')}}</a>
     <div class="row">
         <div class="col-md-12">
             <div class="row">
@@ -47,6 +48,7 @@
                                                     <th style="width:15%">{{__('text.type_merchandise')}}</th>
                                                     <th style="width:10%">{{__('text.load')}}</th>
                                                     <th style="width:12%">{{__('text.basement')}}</th>
+                                                    <th style="width:12%">{{__('text.tallyclerk')}}</th>
                                                     <th style="width:30%">{{__('text.obs')}}</th>
                                                    
                                                 </tr>
@@ -57,16 +59,14 @@
                                                
                                                 
                                                     <tr>
-                                                        
                                                         <td>{{date('H:i',strtotime($item->time))}} | {{date('d-m-Y',strtotime($item->date))}}</td>
                                                         <td>{{$item->truck_plate}}</td>
                                                         <td>{{$item->trailer_plate}}</td>
                                                         <td>{{$item->type_merchandise->name}}</td>
                                                         <td>{{$item->load}} KG</td>
                                                         <td>{{$item->basement->name}}</td>
+                                                        <td>{{$item->tallyclerk->name}}</td>
                                                         <td>{{$item->obs}}</td>
-
-                                                    
                                                     </tr>
                                                     {{--@include('tallyclerk.shift.modal.edittallybook')
                                                     @include('tallyclerk.shift.modal.deletetask')

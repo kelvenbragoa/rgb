@@ -217,7 +217,7 @@ return[
     'gender'=>'Gender',
     'male'=>'Male',
     'female'=>'Female',
-    'bi'=>'BI',
+    'bi'=>'BI/PASSPORT',
     'mobile'=>'Mobile',
     'address'=>'Address',
     'position'=>'Position',

@@ -66,7 +66,7 @@
                                     <td>{{$item->agent->name}}</td>
                                     <td>{{$item->operation_station->name}}</td>
                                     <td>{{$item->type_merchandise->name}}</td>
-                                    <td>{{$item->tallybook->sum('load')}}</td>
+                                    <td>{{$item->tallybook->sum('load')}} KG</td>
                                     <td>{{$item->cm}}</td>
                                     <td>{{$item->work_order}}</td>
                                     <td>

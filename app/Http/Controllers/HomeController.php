@@ -88,7 +88,7 @@ class HomeController extends Controller
 
 
         if(Auth::user()->role_id == 3){
-            $tally_clerk_ships = TallyClerkShip::where('user_id',Auth::user()->id)->orderBy('date','desc')->get();
+            $tally_clerk_ships = TallyClerkShip::where('user_id',Auth::user()->id)->where('date',date('Y-m-d'))->orderBy('date','desc')->get();
             $tallybook = TallyBook::where('tally_clerk_id',Auth::user()->tally_clerk_id)->get();
             return view('tallyclerk.index',compact('tally_clerk_ships','tallybook'));
 

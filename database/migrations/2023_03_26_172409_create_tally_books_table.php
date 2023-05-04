@@ -29,6 +29,8 @@ return new class extends Migration
             $table->integer('operation_station_id');
             $table->date('date');
             $table->time('time');
+            $table->string('name')->nullable();
+            $table->string('bi')->nullable();
             $table->string('truck_plate')->nullable();
             $table->string('trailer_plate')->nullable();
             $table->text('obs')->nullable();

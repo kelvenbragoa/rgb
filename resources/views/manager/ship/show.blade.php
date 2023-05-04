@@ -6,6 +6,7 @@
 
     <h1 class="h3 mb-3">{{__('text.ship')}}</h1>
     <a href="{{route('manager-ship.index')}}" class="btn btn-pill btn-primary mb-3"><i class="far fa-arrow-left"></i>{{__('text.back')}}</a>
+    <a href="{{URL::to('/manager-general-report/'.$ship->id)}}" target="_blank" class="btn btn-pill btn-primary mb-3"><i class="far fa-file"></i>{{__('text.download')}}</a>
 
     <div class="row">
         @if (Session::has('messageSuccess'))

@@ -8,6 +8,8 @@
     <h1 class="h3 mb-3">{{__('text.shift')}}</h1>
 
     <a href="{{URL::to('/agent-ship/'.$shiftship->ship->id)}}" class="btn btn-pill btn-primary mb-3"><i class="far fa-arrow-left"></i>{{__('text.back')}}</a>
+    <a href="{{URL::to('/agent-shift-report/'.$shiftship->id)}}" target="_blank" class="btn btn-pill btn-primary mb-3"><i class="far fa-file"></i>{{__('text.download')}}</a>
+
 
     <div class="row">
         @if (Session::has('messageSuccess'))

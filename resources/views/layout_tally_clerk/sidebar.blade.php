@@ -24,7 +24,7 @@
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="{{route('tallyclerk-shift.index')}}">
-                <i class="align-middle" data-feather="file"></i> <span class="align-middle">{{__('text.shift')}}</span>
+                <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">{{__('text.shift')}}</span>
                 </a>
             </li>
 

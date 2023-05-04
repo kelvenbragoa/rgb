@@ -33,6 +33,7 @@
     @endif
         <div class="col-md-12">
             <a href="{{route('ship.index')}}" class="btn btn-pill btn-primary mb-3"><i class="far fa-arrow-left"></i>{{__('text.back')}}</a>
+            <a href="{{URL::to('/general-report/'.$ship->id)}}" target="_blank" class="btn btn-pill btn-primary mb-3"><i class="far fa-file"></i>{{__('text.download')}}</a>
             <div class="row">
                 <div class="col-xl-12 col-xxl-12 d-flex">
                     <div class="w-100">

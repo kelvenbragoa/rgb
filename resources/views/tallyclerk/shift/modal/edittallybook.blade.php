@@ -79,6 +79,16 @@
 
 <div class="form-group">
   <label for="recipient-name" class="col-form-label">{{__('text.truck_plate')}}:</label>
+  <input type="text" class="form-control"  name="name" value="{{$item->name}}" required>
+</div>
+<div class="form-group">
+  <label for="recipient-name" class="col-form-label">{{__('text.truck_plate')}}:</label>
+  <input type="text" class="form-control"  name="bi" value="{{$item->bi}}" required>
+</div>
+
+
+<div class="form-group">
+  <label for="recipient-name" class="col-form-label">{{__('text.truck_plate')}}:</label>
   <input type="text" class="form-control"  name="truck_plate" value="{{$item->truck_plate}}" placeholder="EX: AAA-300-MC">
 </div>
 

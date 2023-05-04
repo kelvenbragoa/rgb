@@ -145,6 +145,10 @@ class TallyClerkController extends Controller
         $tallyclerk = TallyClerk::find($id);
 
         $tallyclerk->update($data);
+        $user = User::where('tally_clerk_id',$id)->first();
+
+        $user->update($data);
+        
         return redirect()->route('tallyclerk.index')->with('messageSuccess', 'Conferente editado com sucesso');
     }
 

@@ -42,13 +42,13 @@
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="{{route('manager-merchandise.index')}}">
-                <i class="align-middle" data-feather="box"></i> <span class="align-middle">{{__('text.type_merchandise')}}</span>
+                <i class="align-middle" data-feather="shopping-bag"></i> <span class="align-middle">{{__('text.type_merchandise')}}</span>
                 </a>
             </li>
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="{{route('manager-operation.index')}}">
-                <i class="align-middle" data-feather="box"></i> <span class="align-middle">{{__('text.operation_station')}}</span>
+                <i class="align-middle" data-feather="map"></i> <span class="align-middle">{{__('text.operation_station')}}</span>
                 </a>
             </li>
 
@@ -58,7 +58,7 @@
 
             <li class="sidebar-item">
                 <a class="sidebar-link" href="{{route('manager-ship.index')}}">
-                <i class="align-middle" data-feather="truck"></i> <span class="align-middle">{{__('text.ship_operation')}}</span>
+                <i class="align-middle" data-feather="anchor"></i> <span class="align-middle">{{__('text.ship_operation')}}</span>
                 </a>
             </li>
 
