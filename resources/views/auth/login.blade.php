@@ -25,7 +25,7 @@
 
 						<div class="text-center mt-4">
 							<h1 class="h2">{{__('text.welcome_back')}}</h1>
-                            <h1 class="h2">Inogest - Inovatis</h1>
+                            <h1 class="h2">Inogest - RGB</h1>
 							<p class="lead">
 								{{__('text.enter_your_account')}}
 							</p>

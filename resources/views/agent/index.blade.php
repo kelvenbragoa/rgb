@@ -126,4 +126,51 @@
 </main>
 
 
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // Bar chart
+   
+    new Chart(document.getElementById("chartjs-dashboard-bar2"), {
+        type: "bar",
+        data: {
+            labels: ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Otu", "Nov", "Dez"],
+            datasets: [{
+                label: "Este ano",
+                backgroundColor: window.theme.primary,
+                borderColor: window.theme.primary,
+                hoverBackgroundColor: window.theme.primary,
+                hoverBorderColor: window.theme.primary,
+                data: [<?php echo $dados_graficobarra1 ?>],
+                barPercentage: .75,
+                categoryPercentage: .5
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    gridLines: {
+                        display: true
+                    },
+                    stacked: false,
+                    ticks: {
+                        stepSize: 10000
+                    }
+                }],
+                xAxes: [{
+                    stacked: false,
+                    gridLines: {
+                        color: "transparent"
+                    }
+                }]
+            }
+        }
+    });
+    });
+    </script>
+
 @endsection

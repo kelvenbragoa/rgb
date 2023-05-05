@@ -106,17 +106,29 @@ class HomeController extends Controller
                 $tallybook = $tallybook + $item->tallybook->sum('load');
             }
 
+            
+
+            
+           
+
+            $dados_graficobarra1 = '';
+            for ($x = 1; $x <= 12; $x++) {
+                $tallybook1 = TallyBook::where('customer_id',Auth::user()->customer_id)->whereMonth('created_at',$x)->whereYear('created_at',date('Y'))->sum('load');
+            
+                $dados_graficobarra1.="{$tallybook1},";
+            }
 
 
 
-            return view('customer.index',compact('ship','shiftship','tallybook'));
+
+            return view('customer.index',compact('ship','shiftship','tallybook','dados_graficobarra1'));
 
         }
 
 
         if(Auth::user()->role_id == 5){
 
-            $ship = Ship::where('agent_id',Auth::user()->customer_id)->get();
+            $ship = Ship::where('agent_id',Auth::user()->agent_id)->get();
             $shiftship = ShiftShip::where('date',date('Y-m-d'))->orderBy('status','desc')->get();
 
             $tallybook = 0;
@@ -125,10 +137,17 @@ class HomeController extends Controller
                 $tallybook = $tallybook + $item->tallybook->sum('load');
             }
 
+            $dados_graficobarra1 = '';
+            for ($x = 1; $x <= 12; $x++) {
+                $tallybook1 = TallyBook::where('agent_id',Auth::user()->agent_id)->whereMonth('created_at',$x)->whereYear('created_at',date('Y'))->sum('load');
+            
+                $dados_graficobarra1.="{$tallybook1},";
+            }
 
 
 
-            return view('agent.index',compact('ship','shiftship','tallybook'));
+
+            return view('agent.index',compact('ship','shiftship','tallybook','dados_graficobarra1'));
 
         }
        

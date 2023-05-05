@@ -27,6 +27,8 @@ return new class extends Migration
             $table->integer('created_by_user_id');
             $table->integer('type_merchandise_id');
             $table->integer('operation_station_id');
+            $table->integer('customer_id');
+            $table->integer('agent_id');
             $table->date('date');
             $table->time('time');
             $table->string('name')->nullable();

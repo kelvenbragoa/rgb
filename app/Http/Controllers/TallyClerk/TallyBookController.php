@@ -79,7 +79,8 @@ class TallyBookController extends Controller
             'time'=> $data['time'],
             'obs'=> $data['obs'],
             'operation_station_id'=>$ship->operation_station_id,
-            
+            'customer_id'=> $ship->customer_id,
+            'agent_id'=> $ship->agent_id,
             'type_merchandise_id'=>$data['type_merchandise_id'],
             'created_by_user_id'=>Auth::user()->id
 
