@@ -86,6 +86,8 @@
 
                                             <p><strong>{{__('text.agent')}}</strong> : {{$ship->agent->name}}</p>
 
+                                            <p><strong>{{__('text.expected_load')}}</strong> : {{$ship->expected_load}} KG</p>
+
                                             <p><strong>{{__('text.landing_date')}}</strong> : @if ($ship->landing_date != null) {{  date('d-m-Y',strtotime($ship->landing_date))}} @else {{__('text.undefined')}} @endif </p>
 
                                             <p><strong>{{__('text.landing_time')}}</strong> : @if ($ship->landing_time != null) {{date('H:i',strtotime($ship->landing_time)) }} @else {{__('text.undefined')}} @endif </p>
@@ -290,6 +292,7 @@
                                                     {{-- <th style="width:10%;">{{__('text.id')}}</th> --}}
                                                     <th style="width:25%">{{__('text.name')}} {{__('text.basement')}}</th>
                                                     <th style="width:25%">{{__('text.ship')}}</th>
+                                                    <th style="width:25%">{{__('text.stevedor_number')}}</th>
                                                     <th style="width:25%">Nº {{__('text.tally_book')}}</th>
                                                     <th style="width:25%">{{__('text.load')}}</th>
                                                    
@@ -302,6 +305,7 @@
                                                         
                                                         <td>{{$item->name}}</td>
                                                         <td>{{$ship->name}}</td>
+                                                        <td>{{$item->stevedor_number}}</td>
                                                         <td>{{$item->tallybook->count()}}</td>
                                                         <td>{{$item->tallybook->sum('load')}} KG</td>
                                                        <td class="table-action">
@@ -310,11 +314,13 @@
                                                             <a href="" data-toggle="modal" data-target="#exampleModalCenterCopyTask{{$item->id}}" title="{{__('text.copy_task')}}"><i class="align-middle" data-feather="copy"></i></a> 
                                                             <a href="{{URL::to('manager-shiftship/'.$item->id.'/manager-tallyclerkship')}}"  title="{{__('text.show')}}"><i class="align-middle" data-feather="eye"></i></a>--}}
                                                             @if ($ship->status == 0)
+                                                            <a href="" data-toggle="modal" data-target="#exampleEditBasement{{$item->id}}" title="{{__('text.delete')}}"><i class="align-middle" data-feather="edit-2"></i></a>
                                                             <a href="" data-toggle="modal" data-target="#exampleModalCenterDeleteBasement{{$item->id}}" title="{{__('text.delete')}}"><i class="align-middle" data-feather="trash"></i></a>
                                                             @endif
                                                         </td> 
                                                     </tr>
                                                     @include('manager.ship.modal.deletebasement')
+                                                    @include('manager.ship.modal.editbasement')
                                                     {{-- @include('manager.meeting.modal.edittask')
                                                     @include('manager.meeting.modal.copytask')
                                                     @include('manager.meeting.modal.deletetask') --}}

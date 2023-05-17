@@ -69,6 +69,14 @@
                             
                         </div>
 
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="inputEmail4">{{__('text.expected_load')}}</label>
+                                <input type="number" class="form-control" name="expected_load" id="expected_load" placeholder="{{__('text.expected_load')}}" value="{{ old('expected_load') }}" required>
+                            </div>
+                            
+                        </div>
+
                         
 
 

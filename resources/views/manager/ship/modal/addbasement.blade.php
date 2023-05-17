@@ -22,6 +22,11 @@
             <input type="text" class="form-control" id="name" name="name" placeholder="{{__('text.basement')}}" required>
           </div>
 
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">{{__('text.stevedor_number')}}:</label>
+            <input type="number" class="form-control" id="stevedor_number" name="stevedor_number" placeholder="{{__('text.stevedor_number')}}" required>
+          </div>
+
           
          
 

@@ -71,6 +71,7 @@ class ShipController extends Controller
                 'agent_id' => ['required'],
                 'type_operation_id' => ['required'],
                 'created_by_user_id' => ['required'],
+                'expected_load' => ['required'],
                 'is_deleted' => ['required'],
                 'status' => ['required'],
                 

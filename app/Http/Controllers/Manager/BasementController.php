@@ -90,6 +90,17 @@ class BasementController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $data = $request->all();
+        $basement = Basement::find($id);
+
+
+        
+
+
+        $basement->update($data);
+
+
+        return back()->with('messageSuccess','Porão Editado com sucesso');
     }
 
     /**

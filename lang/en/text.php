@@ -1,6 +1,8 @@
 <?php
 
 return[
+    'stevedor_number'=>'Number of Stevedor',
+    'expected_load'=>'Expected Load',
     'ongoing'=>'Ongoing',
     'finished'=>'Finished',
     'stop_registered'=>'Registered Stop',

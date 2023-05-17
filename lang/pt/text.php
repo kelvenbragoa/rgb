@@ -1,6 +1,8 @@
 <?php
 
 return[
+    'stevedor_number'=>'Número de Estivadores',
+    'expected_load'=>'Carga Esperada',
     'ongoing'=>'Em andamento',
     'finished'=>'Terminado',
     'stop_registered'=>'Paragem registrada',
