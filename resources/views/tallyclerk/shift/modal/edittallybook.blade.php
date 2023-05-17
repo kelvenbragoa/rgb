@@ -78,23 +78,23 @@
 </div>
 
 <div class="form-group">
-  <label for="recipient-name" class="col-form-label">{{__('text.truck_plate')}}:</label>
+  <label for="recipient-name" class="col-form-label">{{__('text.name')}}:</label>
   <input type="text" class="form-control"  name="name" value="{{$item->name}}" required>
 </div>
 <div class="form-group">
-  <label for="recipient-name" class="col-form-label">{{__('text.truck_plate')}}:</label>
+  <label for="recipient-name" class="col-form-label">{{__('text.bi')}}:</label>
   <input type="text" class="form-control"  name="bi" value="{{$item->bi}}" required>
 </div>
 
 
 <div class="form-group">
-  <label for="recipient-name" class="col-form-label">{{__('text.truck_plate')}}:</label>
-  <input type="text" class="form-control"  name="truck_plate" value="{{$item->truck_plate}}" placeholder="EX: AAA-300-MC">
+  <label for="recipient-name" class="col-form-label">{{__('text.truck_plate')}} (Ex:AAA-300-MC):</label>
+  <input type="text" class="form-control"  name="truck_plate" value="{{$item->truck_plate}}">
 </div>
 
 <div class="form-group">
-  <label for="recipient-name" class="col-form-label">{{__('text.trailer_plate')}}:</label>
-  <input type="text" class="form-control"  name="trailer_plate" value="{{$item->trailer_plate}}" placeholder="EX: AA-300-MC">
+  <label for="recipient-name" class="col-form-label">{{__('text.trailer_plate')}} (Ex:AA-300-MC):</label>
+  <input type="text" class="form-control"  name="trailer_plate" value="{{$item->trailer_plate}}">
 </div>
 
 <div class="form-group">

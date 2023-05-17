@@ -87,13 +87,13 @@
 </div>
 
 <div class="form-group">
-  <label for="recipient-name" class="col-form-label">{{__('text.truck_plate')}}:</label>
-  <input type="text" class="form-control"  name="truck_plate" placeholder="EX: AAA-300-MC">
+  <label for="recipient-name" class="col-form-label">{{__('text.truck_plate')}} (Ex:AAA-300-MC):</label>
+  <input type="text" class="form-control"  name="truck_plate">
 </div>
 
 <div class="form-group">
-  <label for="recipient-name" class="col-form-label">{{__('text.trailer_plate')}}:</label>
-  <input type="text" class="form-control"  name="trailer_plate" placeholder="EX: AA-300-MC">
+  <label for="recipient-name" class="col-form-label">{{__('text.trailer_plate')}} (Ex:AA-300-MC):</label>
+  <input type="text" class="form-control"  name="trailer_plate">
 </div>
 
 <div class="form-group">
