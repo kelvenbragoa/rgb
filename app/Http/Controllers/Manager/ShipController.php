@@ -120,9 +120,10 @@ class ShipController extends Controller
         $ship = Ship::find($id);
         $customer = Customer::orderBy('name','asc')->get();
         $agent = Agent::orderBy('name','asc')->get();
+        $operation_station = OperationStation::orderBy('name','asc')->get();
         $type_operation = TypeOperation::orderBy('name','asc')->get();
         $type_merchandises = TypeMerchandise::orderBy('name','asc')->get();
-        return view('manager.ship.edit',compact('ship','customer','type_operation','type_merchandises','agent'));
+        return view('manager.ship.edit',compact('ship','customer','type_operation','type_merchandises','agent','operation_station'));
         
     }
 
