@@ -83,7 +83,7 @@
 
                                             <p><strong>{{__('text.agent')}}</strong> : {{$tally_clerk_ships->ship->agent->name}}</p>
 
-                                            {{-- <p><strong>{{__('text.expected_load')}}</strong> : {{$ship->expected_load}} KG</p> --}}
+                                             <p><strong>{{__('text.expected_load')}}</strong> : {{$tally_clerk_ships->ship->expected_load}} KG</p>
 
                                             <p><strong>{{__('text.landing_date')}}</strong> : @if ($tally_clerk_ships->ship->landing_date != null) {{  date('d-m-Y',strtotime($tally_clerk_ships->ship->landing_date))}} @else {{__('text.undefined')}} @endif </p>
 
