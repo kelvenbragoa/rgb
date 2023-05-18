@@ -229,7 +229,7 @@
                                                     <tr>
                                                         
                                                         <td>{{$item->tallyclerk->name}}</td>
-                                                        <td>{{$item->name}}</td>
+                                                        <td>{{$item->tallyclerk->name}}</td>
                                                         <td>{{$item->tallyclerk->email}}</td>
                                                         <td>{{$item->tallyclerk->mobile}}</td>
                                                         <td>{{$item->tallybook->sum('load')}} KG</td>
