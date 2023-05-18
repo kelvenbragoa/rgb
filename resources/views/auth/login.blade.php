@@ -72,7 +72,10 @@ background-size: cover;">
                                         </label>
 										</div>-->
 										<div class="text-center mt-3">
-											<button type="submit" class="btn btn-lg btn-primary">{{__('text.sing_in')}}</a>
+											<button type="submit" id="buttonSubmit" class="btn btn-lg btn-primary">{{__('text.sing_in')}}</button>
+											<div class="text-center spinner-border text-info mr-2" role="status" id="spinner" style="display: none">
+												<span class="sr-only">Loading...</span>
+											</div>
 											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
 										</div>
 									</form>
@@ -92,5 +95,16 @@ background-size: cover;">
 </body>
 
 </html>
+
+<script>
+    document.getElementById("buttonSubmit").onclick = function() {myFunction()};
+
+    function myFunction() {
+
+    document.getElementById('buttonSubmit').style.display = "none";
+    document.getElementById('spinner').style.display = "block";
+    // document.getElementById('form').submit();
+    }
+</script>
 
 

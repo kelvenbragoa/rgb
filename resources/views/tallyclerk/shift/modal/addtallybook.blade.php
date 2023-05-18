@@ -9,7 +9,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="POST" action="{{route('tallyclerk-tallybook.store')}}">
+        <form method="POST"  id="form" action="{{route('tallyclerk-tallybook.store')}}">
           @csrf
          
         <div class="modal-body">
@@ -134,10 +134,24 @@
             
                 
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('text.close')}}</button>
-                <button type="submit" class="btn btn-info">{{__('text.submit')}}</button>
+                <button type="submit" class="btn btn-info" id="buttonSubmit">{{__('text.submit')}}</button>
+                <div class="spinner-border text-info mr-2" role="status" id="spinner" style="display: none">
+                  <span class="sr-only">Loading...</span>
+                </div>
             </form>
           
         </div>
       </div>
     </div>
   </div>
+
+  <script>
+    document.getElementById("buttonSubmit").onclick = function() {myFunction()};
+
+    function myFunction() {
+
+    document.getElementById('buttonSubmit').style.display = "none";
+    document.getElementById('spinner').style.display = "block";
+    document.getElementById('form').submit();
+    }
+</script>
