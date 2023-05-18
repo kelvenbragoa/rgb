@@ -203,6 +203,14 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
+                                <label class="form-label" for="inputEmail4">{{__('text.ladder_positioning_out_time')}}</label>
+                                <input type="time" class="form-control" name="ladder_positioning_out_time" placeholder="{{__('text.ladder_positioning_out_time')}}" value="{{ $ship->ladder_positioning_out_time }}" >
+                            </div>
+                    
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
                                 <label class="form-label" for="inputEmail4">{{__('text.migration_on_board_date')}}</label>
                                 <input type="date" class="form-control" name="migration_on_board_date" placeholder="{{__('text.migration_on_board_date')}}" value="{{ $ship->migration_on_board_date }}" >
                             </div>
@@ -213,6 +221,14 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="inputEmail4">{{__('text.migration_on_board_time')}}</label>
                                 <input type="time" class="form-control" name="migration_on_board_time" placeholder="{{__('text.migration_on_board_time')}}" value="{{ $ship->migration_on_board_time }}" >
+                            </div>
+                    
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="inputEmail4">{{__('text.migration_on_board_out_time')}}</label>
+                                <input type="time" class="form-control" name="migration_on_board_out_time" placeholder="{{__('text.migration_on_board_out_time')}}" value="{{ $ship->migration_on_board_out_time }}" >
                             </div>
                     
                         </div>
@@ -235,6 +251,14 @@
 
                         <div class="row">
                             <div class="mb-3 col-md-6">
+                                <label class="form-label" for="inputEmail4">{{__('text.inspection_out_time')}}</label>
+                                <input type="time" class="form-control" name="inspection_out_time" placeholder="{{__('text.inspection_out_time')}}" value="{{ $ship->inspection_out_time }}" >
+                            </div>
+                    
+                        </div>
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
                                 <label class="form-label" for="inputEmail4">{{__('text.material_positioning_date')}}</label>
                                 <input type="date" class="form-control" name="material_positioning_date" placeholder="{{__('text.material_positioning_date')}}" value="{{ $ship->material_positioning_date }}" >
                             </div>
@@ -245,6 +269,15 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="inputEmail4">{{__('text.material_positioning_time')}}</label>
                                 <input type="time" class="form-control" name="material_positioning_time" placeholder="{{__('text.material_positioning_time')}}" value="{{ $ship->material_positioning_time }}" >
+                            </div>
+                    
+                        </div>
+
+
+                        <div class="row">
+                            <div class="mb-3 col-md-6">
+                                <label class="form-label" for="inputEmail4">{{__('text.material_positioning_out_time')}}</label>
+                                <input type="time" class="form-control" name="material_positioning_out_time" placeholder="{{__('text.material_positioning_out_time')}}" value="{{ $ship->material_positioning_out_time }}" >
                             </div>
                     
                         </div>

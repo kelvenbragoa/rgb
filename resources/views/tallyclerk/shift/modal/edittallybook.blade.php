@@ -26,7 +26,7 @@
 
         <div class="form-group">
           <label for="recipient-name" class="col-form-label">{{__('text.date')}}:</label>
-          <input type="text" class="form-control" value="{{$item->shiftship->date}}"  required readonly>
+          <input type="text" class="form-control" value="{{date('d-m-Y',strtotime($item->shiftship->date))}}"  required readonly>
       </div>
 
       <div class="form-group">
@@ -95,6 +95,11 @@
 <div class="form-group">
   <label for="recipient-name" class="col-form-label">{{__('text.trailer_plate')}} (Ex:AA-300-MC):</label>
   <input type="text" class="form-control"  name="trailer_plate" value="{{$item->trailer_plate}}">
+</div>
+
+<div class="form-group">
+  <label for="recipient-name" class="col-form-label">{{__('text.barcode')}}</label>
+  <input type="text" class="form-control"  name="barcode" value="{{$item->barcode}}">
 </div>
 
 <div class="form-group">

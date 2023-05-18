@@ -1,6 +1,7 @@
 <?php
 
 return[
+    'barcode'=>'Código de Barras',
     'stevedor_number'=>'Número de Estivadores',
     'expected_load'=>'Carga Esperada',
     'ongoing'=>'Em andamento',
@@ -33,12 +34,16 @@ return[
     'last_rope_release_time'=>'Hora de lançamento de útlima corda',
     'ladder_positioning_date'=>'Data de posicionamento da escada',
     'ladder_positioning_time'=>'Hora de posicionamento da escada',
+    'ladder_positioning_out_time'=>'Hora de término de posicionamento da escada',
     'migration_on_board_date'=>'Data da migração a bordo',
     'migration_on_board_time'=>'Hora da migração a bordo',
+    'migration_on_board_out_time'=>'Hora de término da migração a bordo',
     'inspection_date'=>'Data da inspeção fitossanitára',
     'inspection_time'=>'Hora da inspeção fitossanitára',
+    'inspection_out_time'=>'Hora de término da inspeção fitossanitára',
     'material_positioning_date'=>'Data de posicionamento e organização material (Palamenta)',
     'material_positioning_time'=>'Hora de posicionamento e organização material (Palamenta)',
+    'material_positioning_out_time'=>'Hora de término de posicionamento e organização material (Palamenta)',
     'start_operation_date'=>'Data de inicio da operação',
     'start_operation_time'=>'Hora de inicio da operação',
     'ship'=>'Navio/Armazém',

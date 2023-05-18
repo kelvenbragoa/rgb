@@ -1,6 +1,7 @@
 <?php
 
 return[
+    'barcode'=>'Bar Code',
     'stevedor_number'=>'Number of Stevedor',
     'expected_load'=>'Expected Load',
     'ongoing'=>'Ongoing',
@@ -33,12 +34,16 @@ return[
     'last_rope_release_time'=>'Last rope release time',
     'ladder_positioning_date'=>'Ladder positioning date',
     'ladder_positioning_time'=>'Ladder positioning time',
+    'ladder_positioning_out_time'=>'Ladder positioning finish time',
     'migration_on_board_date'=>'Migration on board date',
     'migration_on_board_time'=>'Migration on board time',
+    'migration_on_board_out_time'=>'Migration on board finish time',
     'inspection_date'=>'Inspection phytosanitary date',
     'inspection_time'=>'Inspection phytosanitary time',
+    'inspection_out_time'=>'Inspection phytosanitary finish time',
     'material_positioning_date'=>'Material positioning date (Instrument)',
     'material_positioning_time'=>'Material positioning time (Instrument)',
+    'material_positioning_out_time'=>'Material positioning finish time (Instrument)',
     'start_operation_date'=>'Start operation date',
     'start_operation_time'=>'Start operation time',
     'ship'=>'Ship/Warehouse',
