@@ -206,7 +206,7 @@
    
 
     <tr>
-       <td colspan="4" align="center" style="background-color: #19a1f5">{{__('text.info')}}</td>
+       <td colspan="5" align="center" style="background-color: #19a1f5">{{__('text.info')}}</td>
     </tr>
 
     <tr>
@@ -214,6 +214,7 @@
        <td  style="background-color: #f0f0f0">{{__('text.basement')}}</td>
        <td  style="background-color: #f0f0f0">{{__('text.load')}}</td>
        <td  style="background-color: #f0f0f0">{{__('text.stop')}}</td>
+       <td  style="background-color: #f0f0f0">{{__('text.used_equipment')}}</td>
        
     </tr>
     
@@ -222,6 +223,7 @@
        <td  style="background-color: #f0f0f0">{{$ship->basements->count()}}</td>
        <td  style="background-color: #f0f0f0">{{$ship->tallybook->sum('load')}} KG</td>
        <td  style="background-color: #f0f0f0">{{$ship->stops->count()}} ({{$time_total}} {{__('text.hours')}})</td>
+       <td  style="background-color: #f0f0f0">{{$ship->equipments->count()}} ({{$time_equipment_total}} {{__('text.hours')}})</td>
        
     </tr>
    
@@ -419,6 +421,71 @@
          </td>
          </tr>
      @endforeach
+
+     <tr>
+      <td colspan="8" align="center" style="background-color: #19a1f5">{{__('text.used_equipment')}}</td>
+   </tr>
+
+   <tr>
+      <td  style="background-color: #f0f0f0">{{__('text.start_date')}}</td>
+       <td  style="background-color: #f0f0f0">{{__('text.end_date')}}</td>
+       <td  style="background-color: #f0f0f0">{{__('text.hours_used')}}</td>
+       <td  style="background-color: #f0f0f0">{{__('text.name')}} {{__('text.equipment')}}</td>
+       <td  style="background-color: #f0f0f0">{{__('text.reference')}}</td>
+       <td  style="background-color: #f0f0f0">{{__('text.operator')}}</td>
+       <td  style="background-color: #f0f0f0">{{__('text.created_by_user')}}</td>
+       <td  style="background-color: #f0f0f0">{{__('text.status')}}</td>
+     
+   </tr>
+   
+   @foreach ($itemshift->equipments as $item)
+       <tr>
+       
+      
+       <td style="background-color: #f0f0f0">{{date('d-m-Y H:i',strtotime($item->start_date))}}</td>
+                                                              
+       <td style="background-color: #f0f0f0">
+           @if ($item->end_date != null)
+               
+           {{date('d-m-Y H:i',strtotime($item->end_date))}}
+               
+           @endif
+       </td>
+       @if ($item->end_date == null)
+       <?php
+           $created_at = strtotime($item->start_date);
+           $closed_at = strtotime(Date::now());
+
+           $time = $closed_at - $created_at;
+
+
+       ?>
+       <td style="color:red">{{round($time/3600, 1);  }}Horas({{round($time/60, 1);  }}Minutos)</td>
+       @else
+       <?php
+       $created_at = strtotime($item->start_date);
+       $closed_at = strtotime($item->end_date);
+
+       $time = $closed_at - $created_at;
+
+
+       ?>
+       <td style="color:red">{{round($time/3600, 1);  }}Horas({{round($time/60, 1);  }}Minutos)</td>
+       @endif
+ 
+       <td style="background-color: #f0f0f0">{{$item->name}}</td>
+        <td style="background-color: #f0f0f0">{{$item->reference}}</td>
+        <td style="background-color: #f0f0f0">{{$item->operator}}</td>
+        <td style="background-color: #f0f0f0">{{$item->user->name}}</td>
+       <td style="background-color: #f0f0f0">
+           @if ($item->status == 0)
+           <span class="badge bg-danger">{{__('text.ongoing')}} </span> 
+           @else
+           <span class="badge bg-success">{{__('text.finished')}} </span> 
+           @endif
+       </td>
+       </tr>
+   @endforeach
      
     
 

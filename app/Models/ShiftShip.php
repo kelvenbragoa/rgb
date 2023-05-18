@@ -29,4 +29,8 @@ class ShiftShip extends Model
     public function stops(){
         return $this->hasMany('App\Models\StopRecord', 'shift_ship_id', 'id')->where('status',1);
     }
+
+    public function equipments(){
+        return $this->hasMany('App\Models\UsedEquipments', 'shift_ship_id', 'id')->where('status',1);
+    }
 }

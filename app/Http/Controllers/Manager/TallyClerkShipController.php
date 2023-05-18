@@ -28,8 +28,9 @@ class TallyClerkShipController extends Controller
         $tallyclerks = User::where('role_id',3)->where('operation_station_id',$shiftship->ship->operation_station_id)->orderBy('name','asc')->get();
 
         $stops = StopRecord::where('shift_ship_id',$shiftship->id)->get();
-        $used_equipments = UsedEquipments::where('shift_ship_id',$shiftship->id)->get();;
+        $used_equipments = UsedEquipments::where('shift_ship_id',$shiftship->id)->get();
         $stops_time = StopRecord::where('shift_ship_id',$shiftship->id)->where('status',1)->get();
+        $equipments_time = UsedEquipments::where('shift_ship_id',$shiftship->id)->where('status',1)->get();
         $time_total = 0;
         foreach($stops_time as $item){
             $created_at = strtotime($item->start_date);
@@ -40,8 +41,18 @@ class TallyClerkShipController extends Controller
 
         $time_total = round($time_total/3600, 1);
 
+        $time_equipment_total = 0;
+        foreach($equipments_time as $item){
+            $created_at = strtotime($item->start_date);
+            $closed_at = strtotime($item->end_date);
+            $time = $closed_at - $created_at;
+            $time_equipment_total = $time_equipment_total + $time;
+        }
+
+        $time_equipment_total = round($time_equipment_total/3600, 1);
+
         
-        return view('manager.ship.tallyclerkshift.index', compact('shiftship', 'tallyclerks','stops','stops_time','time_total','used_equipments'));
+        return view('manager.ship.tallyclerkshift.index', compact('shiftship', 'tallyclerks','stops','stops_time','time_total','used_equipments','time_equipment_total'));
     }
 
     /**

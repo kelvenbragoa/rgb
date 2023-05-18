@@ -51,5 +51,9 @@ class Ship extends Model
         return $this->hasOne('App\Models\OperationStation', 'id', 'operation_station_id');
     }
 
+    public function equipments(){
+        return $this->hasMany('App\Models\UsedEquipments', 'ship_id', 'id')->where('status',1);
+    }
+
     
 }

@@ -13,6 +13,7 @@ use App\Models\Ship;
 use App\Models\StopRecord;
 use App\Models\TypeMerchandise;
 use App\Models\TypeOperation;
+use App\Models\UsedEquipments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -95,6 +96,7 @@ class ShipController extends Controller
         $shifts = Shift::orderBy('id','asc')->get();
         
         $stops_time = StopRecord::where('ship_id', $ship->id)->where('status',1)->get();
+        $equipment_time = UsedEquipments::where('ship_id', $ship->id)->where('status',1)->get();
         $time_total = 0;
         foreach($stops_time as $item){
             $created_at = strtotime($item->start_date);
@@ -104,7 +106,19 @@ class ShipController extends Controller
         }
 
         $time_total = round($time_total/3600, 1);
-        return view('manager.ship.show',compact('ship','shifts','time_total'));
+
+        $time_equipment_total = 0;
+        foreach($equipment_time as $item){
+            $created_at = strtotime($item->start_date);
+            $closed_at = strtotime($item->end_date);
+            $time = $closed_at - $created_at;
+            $time_equipment_total = $time_equipment_total + $time;
+        }
+
+        $time_equipment_total = round($time_equipment_total/3600, 1);
+
+
+        return view('manager.ship.show',compact('ship','shifts','time_total','time_equipment_total'));
     }
 
     /**
@@ -194,7 +208,20 @@ class ShipController extends Controller
         //     'status'=>1
         // ]);
 
-        return view('manager.ship.report',compact('ship','time_total','shifts'));
+        $equipments_time = UsedEquipments::where('ship_id', $ship->id)->where('status',1)->get();
+        $time_equipment_total = 0;
+        foreach($equipments_time as $item){
+            $created_at = strtotime($item->start_date);
+            $closed_at = strtotime($item->end_date);
+            $time = $closed_at - $created_at;
+            $time_equipment_total = $time_equipment_total + $time;
+        }
+
+        $time_equipment_total = round($time_equipment_total/3600, 1);
+
+        
+
+        return view('manager.ship.report',compact('ship','time_total','shifts','time_equipment_total'));
 
     }
 
@@ -218,7 +245,18 @@ class ShipController extends Controller
         //     'status'=>1
         // ]);
 
-        $pdf = Pdf::loadView('manager.ship.print_report', compact('ship','time_total','shifts'))->setOptions([
+        $equipments_time = UsedEquipments::where('ship_id', $ship->id)->where('status',1)->get();
+        $time_equipment_total = 0;
+        foreach($equipments_time as $item){
+            $created_at = strtotime($item->start_date);
+            $closed_at = strtotime($item->end_date);
+            $time = $closed_at - $created_at;
+            $time_equipment_total = $time_equipment_total + $time;
+        }
+
+        $time_equipment_total = round($time_equipment_total/3600, 1);
+
+        $pdf = Pdf::loadView('manager.ship.print_report', compact('ship','time_total','shifts','time_equipment_total'))->setOptions([
             'defaultFont' => 'sans-serif',
             'isRemoteEnabled' => 'true'
         ]);
@@ -251,7 +289,18 @@ class ShipController extends Controller
         //     'status'=>1
         // ]);
 
-        $pdf = Pdf::loadView('manager.ship.tallyclerkshift.shift_report', compact('shiftship','ship','time_total','shifts'))->setOptions([
+        $equipments_time = UsedEquipments::where('ship_id', $ship->id)->where('status',1)->get();
+        $time_equipment_total = 0;
+        foreach($equipments_time as $item){
+            $created_at = strtotime($item->start_date);
+            $closed_at = strtotime($item->end_date);
+            $time = $closed_at - $created_at;
+            $time_equipment_total = $time_equipment_total + $time;
+        }
+
+        $time_equipment_total = round($time_equipment_total/3600, 1);
+
+        $pdf = Pdf::loadView('manager.ship.tallyclerkshift.shift_report', compact('shiftship','ship','time_total','shifts','time_equipment_total'))->setOptions([
             'defaultFont' => 'sans-serif',
             'isRemoteEnabled' => 'true'
         ]);

@@ -7,6 +7,7 @@ use App\Models\StopRecord;
 use App\Models\TallyBook;
 use App\Models\TallyClerkShip;
 use App\Models\TypeOfBag;
+use App\Models\UsedEquipments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -71,7 +72,8 @@ class ShiftController extends Controller
         $tally_book = TallyBook::where('shift_ship_id',$tally_clerk_ships->shiftship->id)->where('created_by_user_id',Auth::user()->id)->get();
         $stops = StopRecord::where('shift_ship_id',$tally_clerk_ships->shiftship->id)->get();
         $stops_time = StopRecord::where('shift_ship_id',$tally_clerk_ships->shiftship->id)->where('status',1)->get();
-
+        $equipments_time = UsedEquipments::where('shift_ship_id',$tally_clerk_ships->shiftship->id)->where('status',1)->get();
+        $used_equipments = UsedEquipments::where('shift_ship_id',$tally_clerk_ships->shiftship->id)->get();
         $time_total = 0;
         foreach($stops_time as $item){
             $created_at = strtotime($item->start_date);
@@ -81,9 +83,19 @@ class ShiftController extends Controller
         }
 
         $time_total = round($time_total/3600, 1);
+
+        $time_equipment_total = 0;
+        foreach($equipments_time as $item){
+            $created_at = strtotime($item->start_date);
+            $closed_at = strtotime($item->end_date);
+            $time = $closed_at - $created_at;
+            $time_equipment_total = $time_equipment_total + $time;
+        }
+
+        $time_equipment_total = round($time_equipment_total/3600, 1);
         
         // dd($tally_clerk_ships);
-        return view('tallyclerk.shift.show',compact('tally_clerk_ships','type_bag','tally_book','stops','time_total'));
+        return view('tallyclerk.shift.show',compact('tally_clerk_ships','type_bag','tally_book','stops','time_total','used_equipments','time_equipment_total'));
     }
 
     /**

@@ -176,6 +176,26 @@
                                                 </div>
                                             </div>
 
+                                            <div class="col-sm-2">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title mb-4">{{__('text.used_equipment')}} </h5> 
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <h3 class="mt-1 mb-3">{{$ship->equipments->count()}}</h3>
+                                                                
+                                                            </div>
+                                                            <div class="col">
+                                                                <h4 class="mt-1 mb-3">{{$time_equipment_total}} {{__('text.hours')}}</h4>
+                                                                
+                                                            </div>
+                                                            
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+
 
                                         </div>
                                     </div>
