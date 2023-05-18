@@ -391,6 +391,119 @@
                                                     </tbody>
                                                 </table>
                                                 </div>
+
+
+                                                {{-- Registro de utilização de equipamento --}}
+
+                                                <hr>
+
+                                            <div class="row mb-2 mb-xl-3">
+                                                <div class="col-auto d-none d-sm-block">
+                                                    <h3>{{__('text.used_equipment')}}</h3>
+                                                </div> 
+                                            </div>
+                                            @if ($shiftship->ship->status == 0)
+                                            @if ($shiftship->status == 1)
+                                                <a href="" data-toggle="modal" data-target="#exampleAddEquipment" class="btn btn-pill btn-primary mb-3"><i class="far fa-plus"></i>{{__('text.add')}} {{__('text.used_equipment')}}</a>
+                                                @include('manager.ship.tallyclerkshift.modal.addequipment')
+                                            @endif
+                                            @endif
+
+
+                                            <div class="table-responsive">
+                                                <table id="myTable4" class="table display" >
+                                                    <thead>
+                                                        <tr>
+                                                            {{-- <th style="width:10%;">{{__('text.id')}}</th> --}}
+                                                            <th style="width:15%">{{__('text.start_date')}}</th>
+                                                            
+                                                            <th style="width:15%">{{__('text.end_date')}}</th>
+                                                            <th style="width:15%">{{__('text.hours_used')}}</th>
+                                    
+                                                            <th style="width:30%">{{__('text.name')}} {{__('text.equipment')}}</th>
+                                                            <th style="width:30%">{{__('text.reference')}}</th>
+                                                            <th style="width:30%">{{__('text.operator')}}</th>
+                                                            <th style="width:12%">{{__('text.created_by_user')}}</th>
+                                                            <th style="width:15%">{{__('text.status')}}</th>
+                                                            <th style="width:15%">{{__('text.action')}}</th>
+                                                            
+                                                            
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($used_equipments as $item)
+                                                            
+                                                       
+                                                        
+                                                            <tr>
+                                                                
+                                                                <td>{{date('d-m-Y H:i',strtotime($item->start_date))}}</td>
+                                                                
+                                                                <td>
+                                                                    @if ($item->end_date != null)
+                                                                        
+                                                                    {{date('d-m-Y H:i',strtotime($item->end_date))}}
+                                                                        
+                                                                    @endif
+                                                                </td>
+                                                                @if ($item->end_date == null)
+                                                                <?php
+                                                                    $created_at = strtotime($item->start_date);
+                                                                    $closed_at = strtotime(Date::now());
+    
+                                                                    $time = $closed_at - $created_at;
+    
+    
+                                                                ?>
+                                                                <td style="color:red">{{round($time/3600, 1);  }}Horas({{round($time/60, 1);  }}Minutos)</td>
+                                                                @else
+                                                                <?php
+                                                                $created_at = strtotime($item->start_date);
+                                                                $closed_at = strtotime($item->end_date);
+    
+                                                                $time = $closed_at - $created_at;
+    
+    
+                                                                ?>
+                                                                <td style="color:red">{{round($time/3600, 1);  }}Horas({{round($time/60, 1);  }}Minutos)</td>
+                                                                @endif
+                                                          
+                                                                <td>{{$item->name}}</td>
+                                                                <td>{{$item->reference}}</td>
+                                                                <td>{{$item->operator}}</td>
+                                                                <td>{{$item->user->name}}</td>
+                                                                <td>
+                                                                    @if ($item->status == 0)
+                                                                    <span class="badge bg-danger">{{__('text.ongoing')}} </span> 
+                                                                    @else
+                                                                    <span class="badge bg-success">{{__('text.finished')}} </span> 
+                                                                    @endif
+                                                                </td>
+                                                            
+        
+                                                                
+                                                                
+                                                                <td class="table-action">
+                                                                        @if ($item->end_date == null)
+                                                                        <a href="" data-toggle="modal" data-target="#exampleEditEquipment{{$item->id}}" title="{{__('text.edit')}}"><i class="align-middle" data-feather="edit-2"></i></a>
+                                                                        @endif
+                                                                        
+                                                                         {{-- <a href="" data-toggle="modal" data-target="#exampleModalCenterCopyTask{{$item->id}}" title="{{__('text.copy_task')}}"><i class="align-middle" data-feather="copy"></i></a> 
+                                                                        <a href="{{URL::to('manager-shiftship/'.$item->id.'/manager-tallyclerkship')}}"  title="{{__('text.show')}}"><i class="align-middle" data-feather="eye"></i></a>  --}}
+                                                                       
+                                                                </td> 
+                                                           
+                                                            </tr>
+                                                            @include('manager.ship.tallyclerkshift.modal.editequipment')
+                                                           {{-- @include('tallyclerk.shift.modal.editstop')
+                                                             @include('tallyclerk.shift.modal.edittask')
+                                                            @include('tallyclerk.shift.modal.copytask')
+                                                            @include('tallyclerk.shift.modal.deletetask') --}}
+                                                            @endforeach
+                                                      
+                                                    </tbody>
+                                                </table>
+                                                </div>
                                 </div>
 
                             </div>

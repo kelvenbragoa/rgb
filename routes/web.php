@@ -67,6 +67,7 @@ Route::group(['middleware'=>['auth','manager']], function(){
     Route::get('/manager-tallyclerkshiftship/{tallclerkshiftship_id}/manager-ship/{ship_id}', [App\Http\Controllers\Manager\TallyClerkShiftShipController::class, 'index']);
 
     Route::resource('manager-stop', 'App\Http\Controllers\Manager\StopController');
+    Route::resource('manager-equipment', 'App\Http\Controllers\Manager\UsedEquipmentController');
     Route::get('/deleteall-manager',[\App\Http\Controllers\Manager\NotificationController::class,'deleteall']);
     Route::get('/manager-closeoperation/{ship_id}', [App\Http\Controllers\Manager\ShipController::class, 'operation']);
     Route::get('/manager-general-report/{ship_id}', [App\Http\Controllers\Manager\ShipController::class, 'report']);

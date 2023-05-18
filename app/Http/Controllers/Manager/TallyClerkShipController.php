@@ -7,6 +7,7 @@ use App\Models\ShiftShip;
 use App\Models\StopRecord;
 use App\Models\TallyBook;
 use App\Models\TallyClerkShip;
+use App\Models\UsedEquipments;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -27,6 +28,7 @@ class TallyClerkShipController extends Controller
         $tallyclerks = User::where('role_id',3)->where('operation_station_id',$shiftship->ship->operation_station_id)->orderBy('name','asc')->get();
 
         $stops = StopRecord::where('shift_ship_id',$shiftship->id)->get();
+        $used_equipments = UsedEquipments::where('shift_ship_id',$shiftship->id)->get();;
         $stops_time = StopRecord::where('shift_ship_id',$shiftship->id)->where('status',1)->get();
         $time_total = 0;
         foreach($stops_time as $item){
@@ -39,7 +41,7 @@ class TallyClerkShipController extends Controller
         $time_total = round($time_total/3600, 1);
 
         
-        return view('manager.ship.tallyclerkshift.index', compact('shiftship', 'tallyclerks','stops','stops_time','time_total'));
+        return view('manager.ship.tallyclerkshift.index', compact('shiftship', 'tallyclerks','stops','stops_time','time_total','used_equipments'));
     }
 
     /**

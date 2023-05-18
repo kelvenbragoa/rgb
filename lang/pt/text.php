@@ -1,6 +1,11 @@
 <?php
 
 return[
+    'hours_used'=>'Horas Utilizadas',
+    'used'=>'Utilizado',
+    'operator'=>'Operador',
+    'equipment'=>'Equipamento',
+    'used_equipment'=>'Equipamentos Usados',
     'barcode'=>'Código de Barras',
     'stevedor_number'=>'Número de Estivadores',
     'expected_load'=>'Carga Esperada',

@@ -1,6 +1,11 @@
 <?php
 
 return[
+    'hours_used'=>'Used Hours',
+    'used'=>'Used',
+    'operator'=>'Operator',
+    'equipment'=>'Equipment',
+    'used_equipment'=>'Used Equipments',
     'barcode'=>'Bar Code',
     'stevedor_number'=>'Number of Stevedor',
     'expected_load'=>'Expected Load',
