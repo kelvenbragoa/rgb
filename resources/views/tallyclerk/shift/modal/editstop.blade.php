@@ -20,7 +20,7 @@
 
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">{{__('text.basement')}}:</label>
-            <input  class="form-control" value="{{$item->basement->name ?? {{__('text.general')}}}}" readonly>
+            <input  class="form-control" value="{{$item->basement->name ?? __('text.general')}}" readonly>
         </div>
 
          

@@ -330,7 +330,7 @@
                                                             
                                                             <th style="width:15%">{{__('text.end_date')}}</th>
                                                             <th style="width:15%">{{__('text.time')}} {{__('text.stop')}}</th>
-                                    
+                                                            <th style="width:15%">{{__('text.basement')}}</th>
                                                             <th style="width:30%">{{__('text.reason')}}</th>
                                                             <th style="width:12%">{{__('text.created_by_user')}}</th>
                                                             <th style="width:15%">{{__('text.status')}}</th>
@@ -377,6 +377,7 @@
                                                                 <td style="color:red">{{round($time/3600, 1);  }}Horas({{round($time/60, 1);  }}Minutos)</td>
                                                                 @endif
                                                           
+                                                                <td>{{$item->basement->name ?? __('text.general')}}</td>
                                                                 <td>{{$item->reason}}</td>
                                                                 <td>{{$item->user->name}}</td>
                                                                 <td>
