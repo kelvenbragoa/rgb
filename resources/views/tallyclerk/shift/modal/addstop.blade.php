@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">{{__('text.add')}} {{__('text.tally_book')}}</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">{{__('text.add')}} {{__('text.stop')}}</h5>
           
           
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -17,6 +17,17 @@
               <label for="recipient-name" class="col-form-label">{{__('text.start_date')}}:</label>
               <input type="datetime-local" name="start_date" class="form-control"  placeholder="{{__('text.start_date')}}" required>
           </div>
+
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">{{__('text.basement')}}:</label>
+            <select name="basement_id" class="form-control"  placeholder="{{__('text.basement')}}" required>
+                <option value="0">{{__('text.general')}}</option>
+                @foreach ($tally_clerk_ships->ship->basements as $item)
+                  <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+                
+            </select>
+        </div>
 
          
 

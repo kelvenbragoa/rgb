@@ -14,4 +14,8 @@ class StopRecord extends Model
         return $this->hasOne('App\Models\User', 'id', 'created_by_user_id');
     }
 
+    public function basement(){
+        return $this->hasOne('App\Models\Basement', 'id', 'basement_id');
+    }
+
 }

@@ -18,11 +18,16 @@
               <input type="datetime-local" name="start_date" class="form-control" value="{{$item->start_date}}" placeholder="{{__('text.start_date')}}" readonly required>
           </div>
 
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">{{__('text.basement')}}:</label>
+            <input  class="form-control" value="{{$item->basement->name ?? {{__('text.general')}}}}" readonly>
+        </div>
+
          
 
         <div class="form-group">
           <label for="recipient-name" class="col-form-label">{{__('text.reason')}}:</label>
-          <textarea type="time" name="reason" class="form-control" placeholder="{{__('text.reason')}}" required>{{$item->reason}}</textarea>
+          <textarea name="reason" class="form-control" placeholder="{{__('text.reason')}}" required readonly>{{$item->reason}}</textarea>
         </div>
 
       

@@ -43,7 +43,7 @@ class StopController extends Controller
 
         $shift_ship = ShiftShip::find($data['shift_ship_id']);
 
-        $test=  StopRecord::where('shift_ship_id',$data['shift_ship_id'])->where('ship_id',$data['ship_id'])->where('status',0)->first();
+        $test=  StopRecord::where('shift_ship_id',$data['shift_ship_id'])->where('ship_id',$data['ship_id'])->where('basement_id',$data['basement_id'])->where('status',0)->first();
             
         if($test == null){
 
@@ -52,6 +52,7 @@ class StopController extends Controller
                 'reason'=> $data['reason'],
                 'status'=> $data['status'],
                 'ship_id'=> $data['ship_id'],
+                'basement_id'=> $data['basement_id'],
                 'shift_ship_id'=> $data['shift_ship_id'],
                 'created_by_user_id'=> $data['created_by_user_id'],
                 'tally_clerk_ship_id'=> $data['tally_clerk_ship_id'],
@@ -67,7 +68,7 @@ class StopController extends Controller
 
         }else{
 
-            return back()->with('messageError','Existe um registro de paragem que não foi fechado, por feche o registro de paragem para poder abrir um outro.');
+            return back()->with('messageError','Existe um registro de paragem que não foi para este porão, por favor feche o registro de paragem para poder abrir um outro.');
         }
 
         
