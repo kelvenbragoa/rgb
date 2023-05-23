@@ -30,7 +30,7 @@
 
       <div class="form-group">
         <label for="recipient-name" class="col-form-label">{{__('text.basement')}}:</label>
-        <select type="text" class="form-control" id="basement_id" name="basement_id" value="{{$tally_clerk_ships->shiftship->date}}"  required>
+        <select type="text" class="form-control" id="basement_id" name="basement_id"   required>
           @foreach ($tally_clerk_ships->ship->basements as $item)
             <option value="{{$item->id}}">{{$item->name}}</option>
           @endforeach
@@ -38,6 +38,17 @@
           
         </select>
     </div>
+
+    <div class="form-group">
+      <label for="recipient-name" class="col-form-label">{{__('text.destination')}}:</label>
+      <select type="text" class="form-control" id="destination_id" name="destination_id"   required>
+        @foreach ($tally_clerk_ships->ship->destinations as $item)
+          <option value="{{$item->id}}">{{$item->name}}</option>
+        @endforeach
+
+        
+      </select>
+  </div>
 
     <div class="form-group">
       <label for="recipient-name" class="col-form-label">{{__('text.date')}}:</label>

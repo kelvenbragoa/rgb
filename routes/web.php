@@ -63,6 +63,7 @@ Route::group(['middleware'=>['auth','manager']], function(){
     Route::resource('manager-shiftship','App\Http\Controllers\Manager\ShiftShipController');
     Route::resource('manager-tallyclerkship','App\Http\Controllers\Manager\TallyClerkShipController');
     Route::resource('manager-basement', 'App\Http\Controllers\Manager\BasementController');
+    Route::resource('manager-destination', 'App\Http\Controllers\Manager\DestinationController');
     Route::resource('manager-shiftship.manager-tallyclerkship','App\Http\Controllers\Manager\TallyClerkShipController');
     Route::get('/manager-tallyclerkshiftship/{tallclerkshiftship_id}/manager-ship/{ship_id}', [App\Http\Controllers\Manager\TallyClerkShiftShipController::class, 'index']);
 
@@ -73,6 +74,7 @@ Route::group(['middleware'=>['auth','manager']], function(){
     Route::get('/manager-general-report/{ship_id}', [App\Http\Controllers\Manager\ShipController::class, 'report']);
     Route::get('/manager-shift-report/{ship_id}', [App\Http\Controllers\Manager\ShipController::class, 'shiftreport']);
     Route::get('/manager-basement-report/{ship_id}', [App\Http\Controllers\Manager\ShipController::class, 'basementreport']);
+    Route::get('/manager-destination-report/{ship_id}', [App\Http\Controllers\Manager\ShipController::class, 'destinationreport']);
 
 });
 

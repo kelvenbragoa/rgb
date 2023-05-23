@@ -107,6 +107,22 @@
                                             <div class="col-sm-2">
                                                 <div class="card">
                                                     <div class="card-body">
+                                                        <h5 class="card-title mb-4">{{__('text.destination')}} </h5>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <h3 class="mt-1 mb-3">{{$ship->destinations->count()}}</h3>
+                                                                
+                                                            </div>
+                                                            
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                                <div class="card">
+                                                    <div class="card-body">
                                                         <h5 class="card-title mb-4">{{__('text.load')}} </h5>
                                                         <div class="row">
                                                             <div class="col">
@@ -231,6 +247,46 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($ship->basements as $item)
+                                                    <tr>
+                                                        
+                                                        <td>{{$item->name}}</td>
+                                                        <td>{{$ship->name}}</td>
+                                                        <td>{{$item->tallybook->count()}}</td>
+                                                        <td>{{$item->tallybook->sum('load')}} KG</td>
+                                                      
+                                                    </tr>
+                                                   
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                        </div>
+
+                                        <hr style="border: 2px solid rgb(0, 0, 0);">
+
+                                        <div class="row mb-2 mb-xl-3">
+                                            <div class="col-auto d-none d-sm-block">
+                                                <h3><strong>{{__('text.destination')}}</strong></h3>
+                                            </div> 
+                                        </div>
+
+                                       
+
+
+                                    <div class="table-responsive">
+                                        <table class="table display" >
+                                            <thead>
+                                                <tr>
+                                                    {{-- <th style="width:10%;">{{__('text.id')}}</th> --}}
+                                                    <th style="width:25%">{{__('text.name')}} {{__('text.destination')}}</th>
+                                                    <th style="width:25%">{{__('text.ship')}}</th>
+                                                    <th style="width:25%">Nº {{__('text.tally_book')}}</th>
+                                                    <th style="width:25%">{{__('text.load')}}</th>
+                                                   
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($ship->destinations as $item)
                                                     <tr>
                                                         
                                                         <td>{{$item->name}}</td>

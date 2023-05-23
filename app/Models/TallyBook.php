@@ -22,6 +22,10 @@ class TallyBook extends Model
         return $this->hasOne('App\Models\Basement', 'id', 'basement_id');
     }
 
+    public function destination(){
+        return $this->hasOne('App\Models\Destination', 'id', 'destination_id');
+    }
+
     public function typeofbag(){
         return $this->hasOne('App\Models\TypeOfBag', 'id', 'type_of_bag_id');
     }

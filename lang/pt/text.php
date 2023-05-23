@@ -1,6 +1,7 @@
 <?php
 
 return[
+    'destination'=>'Destino',
     'hours_used'=>'Horas Utilizadas',
     'used'=>'Utilizado',
     'operator'=>'Operador',

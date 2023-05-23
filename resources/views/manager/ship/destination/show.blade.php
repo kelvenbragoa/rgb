@@ -4,9 +4,9 @@
 
 <div class="container-fluid p-0">
     
-    <h1 class="h3 mb-3">{{__('text.basement')}}</h1>
-    <a href="{{URL::to('/manager-ship/'.$basement->ship_id)}}" class="btn btn-pill btn-primary mb-3"><i class="far fa-arrow-left"></i>{{__('text.back')}}</a>
-    <a href="{{URL::to('/manager-basement-report/'.$basement->id)}}" target="_blank" class="btn btn-pill btn-primary mb-3"><i class="far fa-file"></i>{{__('text.download')}}</a>
+    <h1 class="h3 mb-3">{{__('text.destination')}}</h1>
+    <a href="{{URL::to('/manager-ship/'.$destination->ship_id)}}" class="btn btn-pill btn-primary mb-3"><i class="far fa-arrow-left"></i>{{__('text.back')}}</a>
+    <a href="{{URL::to('/manager-destination-report/'.$destination->id)}}" target="_blank" class="btn btn-pill btn-primary mb-3"><i class="far fa-file"></i>{{__('text.download')}}</a>
     <div class="row">
         <div class="col-md-12">
             <div class="row">
@@ -21,10 +21,10 @@
                                         </div> 
                                     </div>
 
-                                    <p><strong>{{__('text.ship')}}: </strong> {{$basement->ship->name}}</p>
-                                    <p><strong>{{__('text.basement')}}: </strong> {{$basement->name}}</p>
-                                    <p><strong>{{__('text.tally_book')}}: </strong> {{$basement->tallybook->count()}}</p>
-                                    <p><strong>{{__('text.load')}}: </strong> {{$basement->tallybook->sum('load')}} KG</p>
+                                    <p><strong>{{__('text.ship')}}: </strong> {{$destination->ship->name}}</p>
+                                    <p><strong>{{__('text.destination')}}: </strong> {{$destination->name}}</p>
+                                    <p><strong>{{__('text.tally_book')}}: </strong> {{$destination->tallybook->count()}}</p>
+                                    <p><strong>{{__('text.load')}}: </strong> {{$destination->tallybook->sum('load')}} KG</p>
                                
 
                                   
@@ -47,7 +47,6 @@
                                                     <th style="width:12%">{{__('text.trailer_plate')}}</th>
                                                     <th style="width:15%">{{__('text.type_merchandise')}}</th>
                                                     <th style="width:10%">{{__('text.load')}}</th>
-                                                    <th style="width:12%">{{__('text.basement')}}</th>
                                                     <th style="width:12%">{{__('text.destination')}}</th>
                                                     <th style="width:12%">{{__('text.tallyclerk')}}</th>
                                                     <th style="width:30%">{{__('text.obs')}}</th>
@@ -55,7 +54,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($basement->tallybook as $item)
+                                                @foreach ($destination->tallybook as $item)
                                                     
                                                
                                                 
@@ -66,8 +65,7 @@
                                                         <td>{{$item->trailer_plate}}</td>
                                                         <td>{{$item->type_merchandise->name}}</td>
                                                         <td>{{$item->load}} KG</td>
-                                                        <td>{{$item->basement->name ?? ''}}</td>
-                                                        <td>{{$item->destination->name ?? ''}}</td>
+                                                        <td>{{$item->destination->name}}</td>
                                                         <td>{{$item->tallyclerk->given_name}}</td>
                                                         <td>{{$item->obs}}</td>
 

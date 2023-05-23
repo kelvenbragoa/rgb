@@ -102,6 +102,7 @@
                                                     <th style="width:15%">{{__('text.type_merchandise')}}</th>
                                                     <th style="width:10%">{{__('text.load')}}</th>
                                                     <th style="width:12%">{{__('text.basement')}}</th>
+                                                    <th style="width:12%">{{__('text.destination')}}</th>
                                                     <th style="width:30%">{{__('text.obs')}}</th>
                                                    
                                                 </tr>
@@ -118,7 +119,8 @@
                                                         <td>{{$item->trailer_plate}}</td>
                                                         <td>{{$item->type_merchandise->name}}</td>
                                                         <td>{{$item->load}} KG</td>
-                                                        <td>{{$item->basement->name}}</td>
+                                                        <td>{{$item->basement->name ?? ''}}</td>
+                                                        <td>{{$item->destination->name ?? ''}}</td>
                                                         <td>{{$item->obs}}</td>
 
                                                     

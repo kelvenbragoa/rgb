@@ -172,6 +172,22 @@
                                             <div class="col-sm-2">
                                                 <div class="card">
                                                     <div class="card-body">
+                                                        <h5 class="card-title mb-4">{{__('text.destination')}} </h5>
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <h3 class="mt-1 mb-3">{{$ship->destinations->count()}}</h3>
+                                                                
+                                                            </div>
+                                                            
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-2">
+                                                <div class="card">
+                                                    <div class="card-body">
                                                         <h5 class="card-title mb-4">{{__('text.load')}} </h5>
                                                         <div class="row">
                                                             <div class="col">
@@ -341,6 +357,63 @@
                                                     </tr>
                                                     @include('manager.ship.modal.deletebasement')
                                                     @include('manager.ship.modal.editbasement')
+                                                    {{-- @include('manager.meeting.modal.edittask')
+                                                    @include('manager.meeting.modal.copytask')
+                                                    @include('manager.meeting.modal.deletetask') --}}
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                        </div>
+
+                                        <hr>
+
+                                    <div class="row mb-2 mb-xl-3">
+                                        <div class="col-auto d-none d-sm-block">
+                                            <h3><strong>{{__('text.destination')}}</strong></h3>
+                                        </div> 
+                                    </div>
+                                    @if ($ship->status == 0)
+                                    <a href="" data-toggle="modal" data-target="#exampleAddDestination" class="btn btn-pill btn-primary mb-3"><i class="far fa-plus"></i>{{__('text.add')}} {{__('text.destination')}}</a>
+                                    @include('manager.ship.modal.adddestination')
+                                    @endif
+                    
+                                    <div class="table-responsive">
+                                        <table id="myTable3" class="table display" >
+                                            <thead>
+                                                <tr>
+                                                    {{-- <th style="width:10%;">{{__('text.id')}}</th> --}}
+                                                    <th style="width:25%">{{__('text.name')}} {{__('text.destination')}}</th>
+                                                    <th style="width:25%">{{__('text.ship')}}</th>
+                                                   
+                                                    
+                                                    <th style="width:25%">Nº {{__('text.tally_book')}}</th>
+                                                    <th style="width:25%">{{__('text.load')}}</th>
+                                                   
+                                                    <th>{{__('text.action')}}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($ship->destinations as $item)
+                                                    <tr>
+                                                        
+                                                        <td>{{$item->name}}</td>
+                                                        <td>{{$ship->name}}</td>
+                                                        
+                                                        <td>{{$item->tallybook->count()}}</td>
+                                                        <td>{{$item->tallybook->sum('load')}} KG</td>
+                                                       <td class="table-action">
+                                                        <a href="{{URL::to('/manager-destination/'.$item->id)}}"  title="{{__('text.show')}}"><i class="align-middle" data-feather="eye"></i></a>
+                                                            {{-- <a href="" data-toggle="modal" data-target="#exampleModalCenterEditTask{{$item->id}}" title="{{__('text.edit')}}"><i class="align-middle" data-feather="edit-2"></i></a>
+                                                            <a href="" data-toggle="modal" data-target="#exampleModalCenterCopyTask{{$item->id}}" title="{{__('text.copy_task')}}"><i class="align-middle" data-feather="copy"></i></a> 
+                                                            <a href="{{URL::to('manager-shiftship/'.$item->id.'/manager-tallyclerkship')}}"  title="{{__('text.show')}}"><i class="align-middle" data-feather="eye"></i></a>--}}
+                                                            @if ($ship->status == 0)
+                                                            <a href="" data-toggle="modal" data-target="#exampleEditDestination{{$item->id}}" title="{{__('text.delete')}}"><i class="align-middle" data-feather="edit-2"></i></a>
+                                                            <a href="" data-toggle="modal" data-target="#exampleModalCenterDeleteDestination{{$item->id}}" title="{{__('text.delete')}}"><i class="align-middle" data-feather="trash"></i></a>
+                                                            @endif
+                                                        </td> 
+                                                    </tr>
+                                                    @include('manager.ship.modal.deletedestination')
+                                                    @include('manager.ship.modal.editdestination')
                                                     {{-- @include('manager.meeting.modal.edittask')
                                                     @include('manager.meeting.modal.copytask')
                                                     @include('manager.meeting.modal.deletetask') --}}

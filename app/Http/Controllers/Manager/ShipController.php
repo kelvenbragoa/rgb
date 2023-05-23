@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Agent;
 use App\Models\Basement;
 use App\Models\Customer;
+use App\Models\Destination;
 use App\Models\OperationStation;
 use App\Models\Shift;
 use App\Models\ShiftShip;
@@ -319,6 +320,24 @@ class ShipController extends Controller
        
 
         $pdf = Pdf::loadView('manager.ship.basement.basement_report', compact('basement','ship'))->setOptions([
+            'defaultFont' => 'sans-serif',
+            'isRemoteEnabled' => 'true'
+        ]);
+
+        
+        return $pdf->setPaper('a4')->stream('report.pdf');
+
+        // return view('admin.ship.print_report',compact('ship','time_total','shifts'));
+    }
+
+    public function destinationreport($destination_id){
+        App::setLocale(auth()->user()->lang);
+
+        $destination = Destination::find($destination_id);
+        $ship = Ship::find($destination->ship_id);
+       
+
+        $pdf = Pdf::loadView('manager.ship.destination.destination_report', compact('destination','ship'))->setOptions([
             'defaultFont' => 'sans-serif',
             'isRemoteEnabled' => 'true'
         ]);

@@ -41,6 +41,15 @@
     </div>
 
     <div class="form-group">
+      <label for="recipient-name" class="col-form-label">{{__('text.destination')}}:</label>
+      <select type="text" class="form-control" id="destination_id" name="destination_id"  required>
+        @foreach ($tally_clerk_ships->ship->destinations as $item2)
+          <option value="{{$item2->id}}" @if ($item2->id == $item->destination_id) selected @endif>{{$item2->name}}</option>
+        @endforeach
+      </select>
+  </div>
+
+    <div class="form-group">
       <label for="recipient-name" class="col-form-label">{{__('text.date')}}:</label>
       <input type="date" class="form-control" name="date" value="{{$item->date}}" required>
   </div>
@@ -99,7 +108,7 @@
 
 <div class="form-group">
   <label for="recipient-name" class="col-form-label">{{__('text.barcode')}}</label>
-  <input type="text" class="form-control"  name="barcode" value="{{$item->barcode}}">
+  <input type="text" class="form-control"  name="barcode" value="{{$item->barcode}}" required>
 </div>
 
 <div class="form-group">

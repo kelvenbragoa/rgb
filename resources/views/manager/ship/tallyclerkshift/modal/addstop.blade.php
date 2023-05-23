@@ -22,7 +22,7 @@
             <label for="recipient-name" class="col-form-label">{{__('text.basement')}}:</label>
             <select name="basement_id" class="form-control"  placeholder="{{__('text.basement')}}" required>
                 <option value="0">{{__('text.general')}}</option>
-                @foreach ($tally_clerk_ships->ship->basements as $item)
+                @foreach ($shiftship->ship->basements as $item)
                   <option value="{{$item->id}}">{{$item->name}}</option>
                 @endforeach
                 

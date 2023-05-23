@@ -39,6 +39,10 @@ class Ship extends Model
         return $this->hasMany('App\Models\Basement', 'ship_id', 'id');
     }
 
+    public function destinations(){
+        return $this->hasMany('App\Models\Destination', 'ship_id', 'id');
+    }
+
     public function tallybook(){
         return $this->hasMany('App\Models\TallyBook', 'ship_id', 'id');
     }
