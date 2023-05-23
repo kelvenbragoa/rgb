@@ -79,7 +79,7 @@
   <label for="recipient-name" class="col-form-label">{{__('text.type_bag')}}:</label>
   <select type="text" class="form-control" name="type_of_bag_id" required>
     @foreach ($type_bag as $item)
-      <option value="{{$item->id}}">{{$item->load}} KG</option>
+      <option value="{{$item->id}}">{{$item->load}}</option>
     @endforeach
     {{-- <option value="25">25KG</option>
     <option value="50">50KG</option>

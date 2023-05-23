@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('type_of_bags', function (Blueprint $table) {
             $table->id();
-            $table->integer('load');
+            $table->string('load');
             $table->timestamps();
         });
     }

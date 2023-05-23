@@ -450,12 +450,12 @@
                                                   <h3>{{__('text.used_equipment')}}</h3>
                                               </div> 
                                           </div>
-                                          {{-- @if ($shiftship->ship->status == 0)
-                                          @if ($shiftship->status == 1)
+                                          @if ($tally_clerk_ships->shiftship->ship->status == 0)
+                                          @if ($tally_clerk_ships->shiftship->status == 1)
                                               <a href="" data-toggle="modal" data-target="#exampleAddEquipment" class="btn btn-pill btn-primary mb-3"><i class="far fa-plus"></i>{{__('text.add')}} {{__('text.used_equipment')}}</a>
-                                              @include('manager.ship.tallyclerkshift.modal.addequipment')
+                                              @include('tallyclerk.shift.modal.addequipment')
                                           @endif
-                                          @endif --}}
+                                          @endif
 
 
                                           <div class="table-responsive">
@@ -531,17 +531,18 @@
       
                                                               
                                                               
-                                                              {{-- <td class="table-action">
-                                                                      @if ($item->end_date == null)
-                                                                      <a href="" data-toggle="modal" data-target="#exampleEditEquipment{{$item->id}}" title="{{__('text.edit')}}"><i class="align-middle" data-feather="edit-2"></i></a>
-                                                                      @endif
-                                                                      
-                                                                       <a href="" data-toggle="modal" data-target="#exampleModalCenterCopyTask{{$item->id}}" title="{{__('text.copy_task')}}"><i class="align-middle" data-feather="copy"></i></a> 
-                                                                      <a href="{{URL::to('manager-shiftship/'.$item->id.'/manager-tallyclerkship')}}"  title="{{__('text.show')}}"><i class="align-middle" data-feather="eye"></i></a> 
-                                                                     
-                                                              </td>  --}}
-                                                         
-                                                          </tr>
+                                                              <td class="table-action">
+                                                                @if ($item->end_date == null)
+                                                                <a href="" data-toggle="modal" data-target="#exampleEditEquipment{{$item->id}}" title="{{__('text.edit')}}"><i class="align-middle" data-feather="edit-2"></i></a>
+                                                                @endif
+                                                                
+                                                                 {{-- <a href="" data-toggle="modal" data-target="#exampleModalCenterCopyTask{{$item->id}}" title="{{__('text.copy_task')}}"><i class="align-middle" data-feather="copy"></i></a> 
+                                                                <a href="{{URL::to('manager-shiftship/'.$item->id.'/manager-tallyclerkship')}}"  title="{{__('text.show')}}"><i class="align-middle" data-feather="eye"></i></a>  --}}
+                                                               
+                                                        </td> 
+                                                   
+                                                    </tr>
+                                                    @include('tallyclerk.shift.modal.editequipment')
                                                          {{-- @include('manager.ship.tallyclerkshift.modal.editequipment')
                                                           @include('tallyclerk.shift.modal.editstop')
                                                            @include('tallyclerk.shift.modal.edittask')

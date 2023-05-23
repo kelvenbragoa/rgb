@@ -89,6 +89,7 @@ Route::group(['middleware'=>['auth','tallyclerk']], function(){
     Route::resource('tallyclerk-tallybook', 'App\Http\Controllers\TallyClerk\TallyBookController');
     Route::resource('tallyclerk-stop', 'App\Http\Controllers\TallyClerk\StopController');
     Route::get('/deleteall-tallyclerk',[\App\Http\Controllers\TallyClerk\NotificationController::class,'deleteall']);
+    Route::resource('tallyclerk-equipment', 'App\Http\Controllers\TallyClerk\UsedEquipmentController');
     
     
 });

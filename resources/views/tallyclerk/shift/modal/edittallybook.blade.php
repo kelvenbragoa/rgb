@@ -78,7 +78,7 @@
   <label for="recipient-name" class="col-form-label">{{__('text.type_bag')}}:</label>
   <select type="text" class="form-control" name="type_of_bag_id" required>
     @foreach ($type_bag as $item3)
-      <option value="{{$item3->id}}" @if ($item3->id == $item->type_of_bag_id) selected @endif>{{$item3->load}} KG</option>
+      <option value="{{$item3->id}}" @if ($item3->id == $item->type_of_bag_id) selected @endif>{{$item3->load}}</option>
     @endforeach
     {{-- <option value="25">25KG</option>
     <option value="50">50KG</option>
