@@ -58,6 +58,11 @@
         border:1px solid black;
         border-collapse: collapse;
 }
+
+html {
+            margin-top: 70px ;
+        
+        }
     </style>
 
 </head>
