@@ -42,12 +42,14 @@ Route::group(['middleware'=>['auth','admin']], function(){
     Route::resource('tallyclerkship','App\Http\Controllers\Admin\TallyClerkShipController');
     Route::resource('shiftship.tallyclerkship','App\Http\Controllers\Admin\TallyClerkShipController');
     Route::resource('basement', 'App\Http\Controllers\Admin\BasementController');
+    Route::resource('destination', 'App\Http\Controllers\Admin\DestinationController');
     Route::get('/tallyclerkshiftship/{tallclerkshiftship_id}/ship/{ship_id}', [App\Http\Controllers\Admin\TallyClerkShiftShipController::class, 'index']);
     Route::get('/deleteall-admin',[\App\Http\Controllers\Admin\NotificationController::class,'deleteall']);
     Route::get('/closeoperation/{ship_id}', [App\Http\Controllers\Admin\ShipController::class, 'operation']);
     Route::get('/general-report/{ship_id}', [App\Http\Controllers\Admin\ShipController::class, 'report']);
     Route::get('/shift-report/{ship_id}', [App\Http\Controllers\Admin\ShipController::class, 'shiftreport']);
     Route::get('/basement-report/{ship_id}', [App\Http\Controllers\Admin\ShipController::class, 'basementreport']);
+    Route::get('/destination-report/{ship_id}', [App\Http\Controllers\Admin\ShipController::class, 'destinationreport']);
 
 });
 
